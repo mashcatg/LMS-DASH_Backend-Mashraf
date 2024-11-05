@@ -11,7 +11,7 @@ error_reporting(E_ALL); // Add this line to enable error reporting
 
 $email = $_GET['email'] ?? '';
 $otp = $_POST['otp'] ?? '';
-if (!isset($_SESSION['u_id'])) {
+if (isset($_SESSION['u_id'])) {
     echo json_encode(['logged_in' => true, 'redirect' => '/']);
     exit();
 }
@@ -41,7 +41,6 @@ try {
         // Store the token in the database
         $stmt = $conn->prepare("UPDATE users SET token = :token WHERE u_email = :email");
         $stmt->execute([':token' => $token, ':email' => $email]);
-
         echo json_encode(['success' => true, 'message' => 'Verification successful', 'redirect' => '/']);
     } else {
         echo json_encode(['success' => false, 'message' => 'Invalid OTP.']);
