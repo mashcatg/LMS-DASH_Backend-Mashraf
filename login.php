@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL); // Add this line to enable error reporting
 
-header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Origin: http://lms.ennovat.com:3000");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Credentials: true");
